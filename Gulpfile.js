@@ -44,7 +44,7 @@ gulp.task('build:serve', function(){
 	})
 });
 
-gulp.task('browserify', function() {
+gulp.task('js', function() {
 	return browserify({ entries: config.path.src + '/main.js', debug: true })
 		.bundle()
 		.pipe($.plumber())
@@ -58,7 +58,7 @@ gulp.task('browserify', function() {
 });
 
 // Alternative to browserify
-gulp.task('js', function() {
+gulp.task('js_', function() {
     gulp.src(config.path.src + '/**/*.js')
 		.pipe($.plumber())
 		.pipe($.sourcemaps.init())
@@ -110,5 +110,5 @@ gulp.task('watch', function() {
     });
 });
 
-gulp.task('build', ['scss', 'browserify', 'jade', 'images', 'build:serve']);
+gulp.task('build', ['scss', 'js', 'jade', 'images', 'build:serve']);
 gulp.task('default', ['build', 'watch']);
