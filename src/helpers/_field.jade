@@ -1,4 +1,8 @@
-mixin field(type, name, label)
-	.field(class='field-' + type)
-		label #{label}:
-		input(type=type, name='user[#{name}]', value=user[name])
+mixin field(options)
+  .field(class='fielda' + options.type ? options.type : "input")
+    label #{options.text}:
+      input(
+        type=options.type || "text",
+        name=options.name,
+        value=options.value
+      )

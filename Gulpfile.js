@@ -54,7 +54,10 @@ gulp.task('js', function() {
 		.pipe($.sourcemaps.init({loadMaps: true}))
 		.pipe($.uglify())
 		.pipe($.sourcemaps.write('./'))
-		.pipe(gulp.dest(config.path.dest + '/js/'));
+		.pipe(gulp.dest(config.path.dest + '/js/'))
+		.pipe($.livereload())
+		.pipe(reload({stream:true}))
+		;
 });
 
 // Alternative to browserify
@@ -98,7 +101,7 @@ gulp.task('watch', function() {
     });
 
 	$.watch(config.path.src + '/**/*.js', function() {
-        gulp.start('browserify');
+        gulp.start('js');
     });
 
 	$.watch(config.path.src + '/**/*.jade', function() {

@@ -1,3 +1,17 @@
-meta(charset='UTF-8')
+meta( charset='utf-8' )
+meta( http-equiv='X-UA-Compatible', content='IE=edge' )
+meta( name='viewport', content='width=device-width, initial-scale=1.0' )
+meta( name='description', content='' )
 link(rel='stylesheet', href='../css/main.min.css')
-script(src='http://localhost:8080/livereload.js')
+script(src='//localhost:8080/livereload.js')
+  
+include ../../helpers/_theme
++bootswatch("flatly")
+  
+//- TODO: Add favicons
+
+//HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+<!--[if IE 9]>
+script(src='//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
+script(src='//oss.maxcdn.com/respond/1.4.2/respond.min.js')
+<![endif]-->

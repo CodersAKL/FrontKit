@@ -1,9 +1,80 @@
-include ../modules/**/*.jade
 include ../helpers/**/*.jade
+include ../modules/**/*.jade
 
 extends ../layouts/default
 
-block meta
-	//- TODO: add you page meta tags
+block title
+  | Home
+
 block body
-	h1 Home page
+
+  .page-header
+    h1 Sticky footer with fixed navbar
+
+    .jumbotron
+      h1 Hello, world!
+      p This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.
+      p: +button("primary", "more.htm", "large") Learn more
+      
+  .row
+    .col-md-4.col-sm-6.col-xs-12
+      +panel("Panel Heading") We are a fairly small, flexible design studio that designs for print and web. We work flexibly with clients to fulfil their design needs. Whether you need to create a brand from scratch, including marketing materials and a beautiful and functional website or whether you are looking for a design refresh we are confident you will be pleased with the results.
+    .col-md-4.col-sm-6.col-xs-12
+      +panel("Panel Heading") We are a fairly small, flexible design studio that designs for print and web. We work flexibly with clients to fulfil their design needs. Whether you need to create a brand from scratch, including marketing materials and a beautiful and functional website or whether you are looking for a design refresh we are confident you will be pleased with the results.
+    .col-md-4.col-sm-6.col-xs-12
+      +panel("Panel Heading") We are a fairly small, flexible design studio that designs for print and web. We work flexibly with clients to fulfil their design needs. Whether you need to create a brand from scratch, including marketing materials and a beautiful and functional website or whether you are looking for a design refresh we are confident you will be pleased with the results.
+
+
+  +button Default
+  
+  +button("primary", "link.htm") Primary
+  
+  +button("success", "success.html", "large") Success
+  
+  +button("info", "info.html", "small") Info
+  
+  +button("warning", "warning.html", "mini") Warning
+
+  +article('Hello world')
+    p This is my
+    p Amazing article
+    
+  +alert("warning") Warning! Warning!
+  +alert("danger") Danger Will Robinson!
+  +alert("success") You succeeded :-)
+  +alert("info") Some information for you
+  
+  +listGroup("list")
+    +listItem("active") Cras justo odio
+    +listItem Dapibus ac facilisis in
+    +listItem Morbi leo risus
+    +listItem Dapibus ac facilisis in
+    +listItem Morbi leo risus
+    +listItem Dapibus ac facilisis in
+    
+  +listGroup("links")
+    +listItem("link1.html", "active")
+      +listHeading List group item heading
+      +listText Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+    +listItem("link2.html")
+      +listHeading List group item heading
+      +listText Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+    +listItem("link3.html")
+      +listHeading List group item heading
+      +listText Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+      
+  +listGroup
+    +listItem
+      +listHeading List group item heading
+      +listText Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+    +listItem
+      +listHeading List group item heading
+      +listText Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+    +listItem
+      +listHeading List group item heading
+      +listText Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+      
+    
+
+block footer
+  |©2016 Footer

@@ -1,28 +1,23 @@
-doctype html
+doctype
+html( lang="en" )
+  head
 
-html
-	head
-		include partials/_head
+    include partials/_head
 
-		block meta
+    block meta
 
-		title
-			block title
-				| FrontEnd
-		//- TODO: Favicons
-	body
+    title
+      block title
+        | FrontEnd
+      
+  body(style="margin-bottom: 60px;")
+    include ../modules/navigation/layout
+    block header
 
-		include ../modules/navigation/layout
+    .container
+      block body
 
-		.js-page
-			block header
+    footer.footer
+      block footer
 
-			main.l-main(id="main", role="main")
-				block body
-
-			.site-footer
-				block footer
-
-
-
-		include partials/_scripts
+  include partials/_scripts
