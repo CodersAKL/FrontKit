@@ -1,0 +1,38 @@
+{
+  "name": "FrontKit",
+  "version": "0.0.1",
+  "description": "Front end system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.12.3",
+    "browserify": "^13.0.0",
+    "del": "^2.2.0",
+    "gulp": "^3.8.11",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-babel": "^4.0.0",
+    "gulp-concat": "^2.5.0",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-jade": "^0.11.0",
+    "gulp-jade-globbing": "^0.1.9",
+    "gulp-livereload": "^3.7.0",
+    "gulp-load-plugins": "^1.2.2",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.2.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.3",
+    "gulp-uglifycss": "^1.0.6",
+    "gulp-watch": "^4.1.1",
+    "nib": "^1.1.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "jquery": "^2.2.3"
+  }
+}

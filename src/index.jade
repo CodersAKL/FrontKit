@@ -1,0 +1,27 @@
+include ./modules/**/*.jade
+include ./helpers/*.jade
+
+extends ./layouts/default.jade
+
+block meta
+  //- TODO: add you page meta tags
+block body
+  .l-site-width
+    h1 Page list
+
+    h2 Pages
+    - var pages = ['home']
+
+  .l-grid
+    each page in pages
+      .row(style="margin-bottom: 20px; height: 300px; overflow: hidden;")
+        a(href="pages/#{page}.html")= page
+        iframe(src="pages/#{page}.html", style="width: 400%; height: 1100px; transform-origin: top left; transform: scale(.25); -webkit-transform: scale(.25")
+
+
+    h2 Modules
+    - var modules = [ 'demo', 'navigation' ]
+
+    each module in modules
+      a(href="modules/#{module}/layout.html")= module
+      | 
