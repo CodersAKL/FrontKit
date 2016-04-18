@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+CONTAINER="$(cat docker-compose.yml | grep -m 1 container_name: | cut -f2 -d":" | xargs)"
+
+COMMAND="bash"
+
+usage() { echo "Usage: $0 (up|stop|ssh)" 1>&2; exit 1; }
+
+up() {
+    docker-compose up -d
+}
+
+stop() {
+    docker-compose stop
+}
+
+ssh() {
+    if [[ ! -z "$1" ]]
+    then
+        COMMAND="${@:1}"
+    fi
+
+    docker exec -u 1000 -it $CONTAINER $COMMAND
+}
+
+case $1 in
+   "up") up;;
+   "stop") stop;;
+   "ssh") ssh ${@:2} ;;
+   *) usage ;;
+esac

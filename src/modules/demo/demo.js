@@ -1,9 +1,3 @@
-/**
- * Created by UAB "Interneto Partneris".
- * User: Vytenis
- * Date: 2016-04-16
- * Time: 16:22
- * © 2016
- */
+'use strict';
 
-console.log('labas 2', $('body'));
+console.log($('body'));

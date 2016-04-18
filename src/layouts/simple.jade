@@ -5,13 +5,13 @@ html( lang="en" )
     include partials/_head
 
     block meta
+    link(rel='stylesheet', href='css/main.min.css')
 
     title
       block title
         | FrontKit
       
-  body(style="margin-bottom: 60px;")
-    include ../modules/navigation/layout
+  body
     block header
 
     .container

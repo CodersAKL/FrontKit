@@ -39,3 +39,29 @@ body > .container {
 code {
 	font-size: 80%;
 }
+
+@mixin aspect-ratio($width, $height) {
+    position: relative;
+    &:before{
+        display: block;
+        content: " ";
+        width: 100%;
+        padding-top: ($height / $width) * 100%;
+    }
+
+    > .content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 400%;
+        height: 400%;
+        transform-origin: top left;
+        transform: scale(.25);
+    }
+}
+
+.preview {
+    @include aspect-ratio(16,9);
+}

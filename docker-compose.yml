@@ -1,0 +1,5 @@
+crowdhouse:
+    container_name: FrontKit
+    build: .docker
+    volumes:
+        - .:/data
