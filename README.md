@@ -1,4 +1,4 @@
-# FrontKit [![Run project](https://s3-sa-east-1.amazonaws.com/assets.azk.io/run-project.png)](http://run.azk.io/start/?repo=CodersAKL/FrontKit&ref=azkfile)
+# FrontKit [![Run project](https://s3-sa-east-1.amazonaws.com/assets.azk.io/run-project.png)](http://run.azk.io/start/?repo=CodersAKL/FrontKit)
 
 Front end system
 ##### JADE + browserify + browserSync + SASS + Uglify + image optimization
