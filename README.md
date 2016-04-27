@@ -13,7 +13,8 @@ You have 4 options to run project. I recommend to try run project using AZK
 1. `node server.js` Run static server
 
 ## Run project With docker.
- If you don't want to install node and other global packages. You need
+If you don't want to install node and other global packages. You need
+
 1. [docker](https://docs.docker.com/engine/installation/)
 1. `service docker start` Start docker service if not running
 1. `docker build -t frontkit ./docker` Build vm with name "frontkit"
