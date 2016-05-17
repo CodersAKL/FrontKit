@@ -1,67 +1,68 @@
+@import "sass/vars";
 @import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-/* Sticky footer styles
--------------------------------------------------- */
+// Sticky footer styles
 html {
-	position: relative;
-	min-height: 100%;
+  min-height: 100%;
+  position: relative;
 }
+
 body {
-	/* Margin bottom by footer height */
-	margin-bottom: 60px;
+  // Margin bottom by footer height
+  margin-bottom: 60px;
 }
+
 .footer {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	/* Set the fixed height of the footer here */
-	height: 60px;
-	background-color: #f5f5f5;
+  background-color: $color-background;
+  bottom: 0;
+  // Set the fixed height of the footer here
+  height: 60px;
+  position: absolute;
+  width: 100%;
 }
 
-
-/* Custom page CSS
--------------------------------------------------- */
-/* Not required for template or sticky footer method. */
-
+// Custom page CSS
+// Not required for template or sticky footer method.
 body > .container {
-	padding: 60px 15px 0;
-}
-.container .text-muted {
-	margin: 20px 0;
+  padding: 60px 15px 0;
+
+  .text-muted {
+    margin: 20px 0;
+  }
 }
 
 .footer > .container {
-	padding-right: 15px;
-	padding-left: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 code {
-	font-size: 80%;
+  font-size: 80%;
 }
 
 @mixin aspect-ratio($width, $height) {
-    position: relative;
-    &:before{
-        display: block;
-        content: " ";
-        width: 100%;
-        padding-top: ($height / $width) * 100%;
-    }
+  position: relative;
 
-    > .content {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 400%;
-        height: 400%;
-        transform-origin: top left;
-        transform: scale(.25);
-    }
+  &:before {
+    content: " ";
+    display: block;
+    padding-top: ($height / $width) * 100%;
+    width: 100%;
+  }
+
+  > .content {
+    bottom: 0;
+    height: 400%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: scale(.25);
+    transform-origin: top left;
+    width: 400%;
+  }
 }
 
 .preview {
-    @include aspect-ratio(16,9);
+  @include aspect-ratio(16, 9);
 }
