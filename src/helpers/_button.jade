@@ -10,5 +10,6 @@ mixin button(style, href, size)
     when "mini"
       - size = "btn-xs"
 
-  a( class=["btn", "btn-" + style, size], href=href )
-    block
+  a( class=["btn", "btn-" + style, size], href=href )&attributes(attributes)
+    if block
+      block

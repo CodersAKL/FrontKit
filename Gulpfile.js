@@ -4,15 +4,14 @@ var
     browserify  = require('browserify'),
     browserSync = require('browser-sync').create(),
     reload      = browserSync.reload,
-    source      = require('vinyl-source-stream'),
-    buffer      = require('vinyl-buffer'),
     del         = require('del'),
     config      = {
         path: {
             dest: './dist',
             src: './src'
         }
-    }
+    },
+    timer = 0
 ;
 
 // TODO: Add svg sprites
@@ -23,36 +22,30 @@ gulp.task('scss', function () {
         .pipe($.sourcemaps.init())
         .pipe($.sass.sync())
         .pipe($.autoprefixer('last 3 versions'))
-        .pipe($.uglifycss())
-        .pipe($.rename({suffix: '.min'}))
         .pipe($.sourcemaps.write('./'))
         .pipe(gulp.dest(config.path.dest + '/css/'))
-        .pipe(reload({stream: true}))
+        .pipe(browserSync.stream({match: '**/*.css'}))
     ;
 });
 
 gulp.task('build:clean', function (sb) {
+    console.log('deleted');
     return del([config.path.dest + '/**/*'], sb);
 });
 
 gulp.task('build:serve', function () {
-    browserSync.init({
-        server: {
-            baseDir: config.path.dest + '/'
-        }
+    var files = [
+        'css/**/*.css',
+        'js/**/*.js'
+    ];
+    browserSync.init(files, {
+        server: config.path.dest
     })
 });
 
 gulp.task('js', function () {
-    return browserify({entries: config.path.src + '/main.js', debug: true, insertGlobals: true })
-        .bundle()
-        .pipe($.plumber())
-        .pipe(source('main.js'))
-        .pipe(buffer())
-        .pipe($.sourcemaps.init({loadMaps: true}))
-        .pipe($.uglify())
-        .pipe($.sourcemaps.write('./'))
-        .pipe($.rename({suffix: '.min'}))
+    return gulp.src([config.path.src + '/main.js'])
+        .pipe($.browserify({debug: true,insertGlobals: true}))
         .pipe(gulp.dest(config.path.dest + '/js/'))
         .pipe(reload({stream: true}))
     ;
@@ -102,7 +95,6 @@ gulp.task('jade', function () {
         .pipe($.jadeGlobbing())
         .pipe($.jade({pretty: true}))
         .pipe(gulp.dest(config.path.dest + '/'))
-        .pipe(reload({stream: true}))
     ;
 });
 
@@ -112,17 +104,23 @@ gulp.task('images', function () {
         .pipe(gulp.dest(config.path.dest + '/img'));
 });
 
-gulp.task('watch', function () {
-    gulp.watch(config.path.src + '/**/*.scss', ['lint_scss', 'scss']);
+gulp.task('watch-all', function () {
+    gulp.watch(config.path.src + '/**/*.scss', ['scss']);
 
-    gulp.watch(config.path.src + '/**/*.js', ['lint_js', 'js']);
+    gulp.watch(config.path.src + '/**/*.js', ['js']);
 
-    gulp.watch(config.path.src + '/**/*.jade', ['lint_jade', 'jade']);
+    gulp.watch(config.path.src + '/**/*.jade', ['jade']);
 
     gulp.watch(config.path.src + '/img/**', ['images']);
 
-    gulp.watch(config.path.dest + '/**/*.html').on('change', browserSync.reload);
+    gulp.watch(config.path.dest + '/**/*.html').on('change', function(){
+        clearTimeout(timer);
+        timer = setTimeout(function(){
+           reload();
+        }, 500);
+    });
 });
 
 gulp.task('build', ['build:clean', 'lint_scss', 'scss', 'lint_js', 'js', 'lint_jade', 'jade', 'images']);
-gulp.task('default', ['build', 'build:serve', 'watch']);
+gulp.task('default', ['build']);
+gulp.task('watch', ['build:serve', 'watch-all']);

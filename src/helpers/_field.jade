@@ -1,5 +1,5 @@
 mixin field(options)
-  .field(class='fielda' + options.type ? options.type : "input")
+  .field(class='field' + options.type ? options.type : "input")
     label #{options.text}:
       input(
         type=options.type || "text",

@@ -1,0 +1,52 @@
+.btn {
+  &.btn-primary {
+    &.btn-preview {
+      position: absolute;
+      bottom: -50px;
+    }
+  }
+}
+
+// Sticky footer styles
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  // Margin bottom by footer height
+  margin-bottom: 60px;
+}
+
+.footer {
+  background-color: $body-bg;
+  bottom: 0;
+  // Set the fixed height of the footer here
+  height: 60px;
+  position: absolute;
+  width: 100%;
+}
+
+// Custom page CSS
+// Not required for template or sticky footer method.
+body > .container {
+  padding: 60px 15px 0;
+
+  .text-muted {
+    margin: 20px 0;
+  }
+}
+
+.footer > .container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+
+.preview {
+  @include aspect-ratio(16, 9);
+  margin-bottom: 50px;
+}

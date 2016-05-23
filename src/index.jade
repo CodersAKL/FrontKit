@@ -10,14 +10,13 @@ block body
     h1 Index
 
     h2 Pages
-    - var pages = ['home']
+    - var pages = ['home', 'demo']
 
   .row
     each page in pages
       .col-lg-4.col-sm-6.col-xs-12.preview
-        a(href="pages/#{page}.html")= page
+        a(href="pages/#{page}.html", class="btn btn-primary btn-preview")= page
         iframe.content(src="pages/#{page}.html")
-
 
   .row
     h2 Modules

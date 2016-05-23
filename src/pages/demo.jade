@@ -1,0 +1,17 @@
+include ../helpers/**/*.jade
+include ../modules/**/*.jade
+
+extends ../layouts/default
+
+block title
+  | Home2
+
+block body
+
+  p
+    +alert("warning") Warning! Warning!
+      +button("info", "info.html", "small")(data-id="12", class="btn-sm") Warning
+    
+
+block footer
+  |©2016 Footer2
