@@ -38,7 +38,7 @@
     "gulp-uglify": "^2.0.0",
     "gulp-uglifycss": "^1.0.6",
     "gulp-watch": "^4.1.1",
-    "jshint": "^2.9.2",
+    "jshint": "^2.9.4",
     "jshint-stylish": "^2.2.0",
     "serve-static": "*"
   },
