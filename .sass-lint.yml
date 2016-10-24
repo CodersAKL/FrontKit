@@ -58,7 +58,6 @@ rules:
   nesting-depth:
     - 1
     - max-depth: 3
-  no-color-keyword: 1
   no-color-literals: 1
   no-css-comments: 1
   no-debug: 1
@@ -91,6 +90,7 @@ rules:
   property-sort-order:
     - 0
     - ignore-custom-properties: false
+  pseudo-element: false
   property-units:
     - 1
     - global:
