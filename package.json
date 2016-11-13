@@ -28,7 +28,7 @@
     "gulp-jade": "1.1.0",
     "gulp-jade-globbing": "0.1.9",
     "gulp-jadelint": "0.1.0",
-    "gulp-jshint": "2.0.1",
+    "gulp-jshint": "2.0.3",
     "gulp-load-plugins": "1.2.2",
     "gulp-plumber": "1.1.0",
     "gulp-rename": "1.2.2",
