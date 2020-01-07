@@ -43,7 +43,7 @@
     "serve-static": "*"
   },
   "dependencies": {
-    "bootstrap-sass": "3.3.6",
+    "bootstrap-sass": "3.4.1",
     "jquery": "3.4.0"
   }
 }
